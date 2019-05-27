@@ -50,6 +50,9 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   type: {{ .Values.minecraft.service.type }}
+  {{ if .Values.minecraft.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.minecraft.service.loadBalancerIP }}
+  {{ end }}
   ports:
     - port: 25565
       targetPort: minecraft
