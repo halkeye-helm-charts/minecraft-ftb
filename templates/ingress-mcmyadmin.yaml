@@ -1,4 +1,4 @@
-{{- if .Values.mcadmin.ingress.enabled -}}
+{{- if .Values.mcmyadmin.ingress.enabled -}}
 {{- $fullName := include "minecraft-ftb.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -9,14 +9,14 @@ metadata:
     helm.sh/chart: {{ include "minecraft-ftb.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{- with .Values.mcadmin.ingress.annotations }}
+  {{- with .Values.mcmyadmin.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-{{- if .Values.mcadmin.ingress.tls }}
+{{- if .Values.mcmyadmin.ingress.tls }}
   tls:
-  {{- range .Values.mcadmin.ingress.tls }}
+  {{- range .Values.mcmyadmin.ingress.tls }}
     - hosts:
       {{- range .hosts }}
         - {{ . | quote }}
@@ -25,7 +25,7 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-  {{- range .Values.mcadmin.ingress.hosts }}
+  {{- range .Values.mcmyadmin.ingress.hosts }}
     - host: {{ . | quote }}
       http:
         paths:

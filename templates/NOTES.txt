@@ -1,7 +1,7 @@
 1. Get the application URL by running these commands:
-{{- if .Values.mcadmin.ingress.enabled }}
-{{- range $host := .Values.mcadmin.ingress.hosts }}
-  http{{ if $.Values.mcadmin.ingress.tls }}s{{ end }}://{{ $host }}/
+{{- if .Values.mcmyadmin.ingress.enabled }}
+{{- range $host := .Values.mcmyadmin.ingress.hosts }}
+  http{{ if $.Values.mcmyadmin.ingress.tls }}s{{ end }}://{{ $host }}/
 {{- end }}
 {{- end }}
 

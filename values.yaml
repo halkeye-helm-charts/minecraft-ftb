@@ -15,7 +15,7 @@ fullnameOverride: ""
 service:
   type: ClusterIP
 
-mcadmin:
+mcmyadmin:
   service:
     type: ClusterIP
   ingress:
