@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.dynmap.service.type }}
   ports:
     - port: 8123
       targetPort: dynmap
@@ -29,7 +29,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.mcmyadmin.service.type }}
   ports:
     - port: 8080
       targetPort: mcmyadmin
@@ -49,7 +49,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.minecraft.service.type }}
   ports:
     - port: 25565
       targetPort: minecraft
