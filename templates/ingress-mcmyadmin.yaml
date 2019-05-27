@@ -1,3 +1,4 @@
+{{- if .Values.mcmyadmin.enabled -}}
 {{- if .Values.mcmyadmin.ingress.enabled -}}
 {{- $fullName := include "minecraft-ftb.fullname" . -}}
 apiVersion: extensions/v1beta1
@@ -34,4 +35,5 @@ spec:
               serviceName: {{ $fullName }}-mcmyadmin
               servicePort: mcmyadmin
   {{- end }}
+{{- end }}
 {{- end }}
