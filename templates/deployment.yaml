@@ -41,7 +41,7 @@ spec:
               protocol: TCP
           volumeMounts:
           - name: minecraft-ftb-data
-            mountPath: /home/minecraft/mcmyadmin/Minecraft/world
+            mountPath: /opt/minecraft/world
             subPath: world
           - name: minecraft-ftb-data
             mountPath: /home/minecraft/mcmyadmin/Minecraft/Backups
