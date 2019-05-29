@@ -38,6 +38,7 @@ minecraft:
     type: ClusterIP
   # see https://github.com/artheus/feedthebeast-docker-servers#configuration
   settings: {}
+  ops: []
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -17,6 +17,8 @@ spec:
     type: Recreate
   template:
     metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
         app.kubernetes.io/name: {{ include "minecraft-ftb.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
@@ -43,12 +45,18 @@ spec:
           - name: minecraft-ftb-data
             mountPath: /opt/minecraft/world
             subPath: world
+          - name: minecraft-ftb-configmap
+            mountPath: /opt/minecraft/ops.json
+            subPath: ops.json
           - name: minecraft-ftb-data
             mountPath: /home/minecraft/mcmyadmin/Minecraft/Backups
             subPath: Backups
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+      - name: minecraft-ftb-configmap
+        configMap:
+          name: {{ template "minecraft-ftb.fullname" . }}
       - name: minecraft-ftb-data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
