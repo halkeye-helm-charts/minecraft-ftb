@@ -49,8 +49,8 @@ spec:
             mountPath: /opt/minecraft/ops.json
             subPath: ops.json
           - name: minecraft-ftb-data
-            mountPath: /home/minecraft/mcmyadmin/Minecraft/Backups
-            subPath: Backups
+            mountPath: /opt/minecraft/backups
+            subPath: backups
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
